@@ -1,4 +1,4 @@
-import assert from '../assert'
+import {hasString} from 'sav-assert'
 import Collection from './Collection'
 import Storage from './Storage'
 import {resolve} from './Utils.js'
@@ -13,7 +13,7 @@ DataSet.prototype.setTransfer = function(handle) {
 };
 
 DataSet.prototype.collection = function(opts) {
-    assert.hasString(opts, 'name');
+    hasString(opts, 'name');
     return this[opts.name] || (this[opts.name] = new Collection(this, opts));
 };
 

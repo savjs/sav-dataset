@@ -1,5 +1,5 @@
-import assert from '../assert'
-import md5 from '../vender/md5.js'
+import {inObject} from 'sav-assert'
+import md5 from 'blueimp-md5'
 
 export default function UniqueIndex(fields) {
     this._fields = Array.isArray(fields) ? fields : [fields];
@@ -56,7 +56,7 @@ UniqueIndex.prototype.reset = function() {
 UniqueIndex.prototype._getUniqueKeyMulti = function(obj) {
     var vals = [];
     this._fields.forEach(function(field) {
-        assert.inObject(obj, field);
+        inObject(obj, field);
         vals.push(obj[field]);
     });
     return md5(vals.join('~'));
@@ -64,7 +64,7 @@ UniqueIndex.prototype._getUniqueKeyMulti = function(obj) {
 
 UniqueIndex.prototype._getUniqueKeySingle = function(obj) {
     var field = this._fields[0];
-    assert.inObject(obj, field);
+    inObject(obj, field);
     return obj[field];
 };
 

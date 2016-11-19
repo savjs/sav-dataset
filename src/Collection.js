@@ -1,7 +1,7 @@
 import {extend, clone, resolve, reject} from './Utils'
 import PrimaryIndex from './PrimaryIndex'
 import UniqueIndex from './UniqueIndex'
-import assert from '../assert'
+import {neq, isArray} from 'sav-assert'
 import Finder from './Finder'
 
 export default function Collection(dataset, opts) {
@@ -25,7 +25,7 @@ export default function Collection(dataset, opts) {
         });
     }
     // 必须有主键或索引
-    assert.neq(indexs.length, 0);
+    neq(indexs.length, 0);
     // 增加读取操作的 排序索引
 
 }
@@ -73,7 +73,7 @@ Collection.prototype._remove = function(datas, vals) {
     return this._find(datas, vals).then(function(resulsts) {
         resulsts.forEach(function(ret) {
             var idx = datas.indexOf(ret);
-            assert.neq(idx, -1);
+            neq(idx, -1);
             datas.splice(idx, 1);
             self._indexs.forEach(function(idx) {
                 idx.remove(ret);
@@ -190,7 +190,7 @@ Collection.prototype.__doUpdateDatas = function(datas, newDatas, oldDatas) {
     for (var i = 0; i < newDatas.length; ++i) {
         var item = newDatas[i];
         var extracted = datas.splice(datas.indexOf(oldDatas[i]), 1, item);
-        assert.isArray(extracted);
+        isArray(extracted);
         for (var j = 0; j < this._indexs.length; ++j) {
             this._indexs[j].replace(oldDatas[i], item);
         }

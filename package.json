@@ -31,6 +31,8 @@
   },
   "homepage": "https://github.com/savjs/sav-dataset#readme",
   "dependencies": {
-    "sav-util": "^0.0.2"
+    "sav-assert": "0.0.1",
+    "blueimp-md5": "^2.5.0",
+    "sav-util": "^0.0.3"
   }
 }

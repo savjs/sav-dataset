@@ -1,5 +1,5 @@
-import assert from '../assert'
-import {uuid} from '../util/func.js'
+import {inObject} from 'sav-assert'
+import {uuid} from 'sav-util'
 
 export default function PrimaryIndex(field) {
     this._field = field;
@@ -15,7 +15,7 @@ PrimaryIndex.prototype.getSafe = PrimaryIndex.prototype.get = function(val) {
 };
 
 PrimaryIndex.prototype.set = function(obj) {
-    assert.inObject(obj, this._field);
+    inObject(obj, this._field);
     if (obj[this._field] in this._maps) {
         throw 'exists';
     }
@@ -23,7 +23,7 @@ PrimaryIndex.prototype.set = function(obj) {
 };
 
 PrimaryIndex.prototype.update = function(obj) {
-    assert.inObject(obj, this._field);
+    inObject(obj, this._field);
     if (this._maps[obj[this._field]] != obj) {
         this._maps[obj[this._field]] = obj;
     }
