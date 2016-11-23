@@ -1,6 +1,6 @@
 {
   "name": "sav-dataset",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "dataset for savjs",
   "main": "dist/sav-dataset.cjs.js",
   "module": "dist/sav-dataset.es.js",
@@ -35,7 +35,7 @@
   "homepage": "https://github.com/savjs/sav-dataset#readme",
   "dependencies": {
     "blueimp-md5": "^2.5.0",
-    "sav-assert": "0.0.1",
-    "sav-util": "^0.0.3"
+    "sav-assert": "0.0.2",
+    "sav-util": "^0.0.4"
   }
 }
