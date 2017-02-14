@@ -1,6 +1,6 @@
 {
   "name": "sav-dataset",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "dataset for savjs",
   "main": "dist/sav-dataset.cjs.js",
   "module": "dist/sav-dataset.es.js",
