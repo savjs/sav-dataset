@@ -1,8 +1,4 @@
-/*
- * @Description     查找器
- * @File       Finder.js
- * @Auth       jetiny@hfjy.com
- */
+
 import { resolve } from './Utils.js'
 import compare from './compare'
 
